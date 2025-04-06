@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nothrim Labs – Ecological AI Solutions</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Local FontAwesome (Recommended over Kit for reliability if possible) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Libraries (Three.js, GSAP, Vanilla Tilt) - Swiper removed as it wasn't used -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js" defer></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="container nav-container">
+      <a href="#hero" class="logo">
+        <img src="logo.png" alt="Nothrim Labs Logo" class="logo-img" />
+        <span>Nothrim Labs</span>
+      </a>
+      <div class="nav-links">
+        <a href="#solutions">Solutions</a>
+        <a href="#agriculture">Agriculture AI</a>
+        <a href="#projects">Projects</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Pioneering AI for <span class="highlight">Planetary Health</span>
+          <span class="sub-highlight">starting from Bangladesh</span>
+        </h1>
+        <p class="hero-subtitle">Leveraging advanced AI to tackle critical ecological challenges of 2050.</p>
+        <div class="problem-statement">
+          <h2 class="challenge-title">Key 2050 Challenges We Address:</h2>
+          <div class="problem-grid">
+            <div class="problem-card" data-tilt data-tilt-scale="1.05">
+              <div class="problem-icon"><i class="fas fa-leaf"></i></div>
+              <h3>Soil Degradation</h3>
+              <p>40% arable land fertility loss</p>
+            </div>
+            <div class="problem-card" data-tilt data-tilt-scale="1.05">
+              <div class="problem-icon"><i class="fas fa-bug"></i></div>
+              <h3>Pollinator Crisis</h3>
+              <p>35% decline in vital species</p>
+            </div>
+            <div class="problem-card" data-tilt data-tilt-scale="1.05">
+              <div class="problem-icon"><i class="fas fa-temperature-high"></i></div>
+              <h3>Urban Heating</h3>
+              <p>Cities 5°C+ warmer</p>
+            </div>
+            <div class="problem-card" data-tilt data-tilt-scale="1.05">
+              <div class="problem-icon"><i class="fas fa-seedling"></i></div>
+              <h3>Biodiversity Loss</h3>
+              <p>1M+ species at risk</p>
+            </div>
+          </div>
+        </div>
+         <a href="#solutions" class="cta-button hero-cta">Explore Our Solutions <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <!-- Terrain Animation -->
+      <div id="terrain-container" class="hero-animation"></div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section id="solutions" class="solutions-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Approach</span>
+        <h2>The Three Pillars of Ecological AI</h2>
+        <p>Integrating sensing, intelligence, and action for sustainable impact.</p>
+      </div>
+      <div class="solution-cards">
+        <div class="solution-card" data-tilt>
+          <div class="card-icon-wrapper"><i class="fas fa-satellite-dish"></i></div>
+          <h3>Global Sensing Network</h3>
+          <p>Deploying IoT sensors & satellite data for real-time environmental monitoring.</p>
+          <div class="card-animation-container">
+             <canvas class="solution-animation" id="sensing-animation"></canvas>
+          </div>
+        </div>
+        <div class="solution-card" data-tilt>
+          <div class="card-icon-wrapper"><i class="fas fa-brain"></i></div>
+          <h3>Adaptive AI Core</h3>
+          <p>Self-improving models predicting ecological shifts and optimizing interventions.</p>
+           <div class="card-animation-container">
+            <canvas class="solution-animation" id="ai-core-animation"></canvas>
+          </div>
+        </div>
+        <div class="solution-card" data-tilt>
+          <div class="card-icon-wrapper"><i class="fas fa-recycle"></i></div>
+          <h3>Circular Implementation</h3>
+          <p>Designing closed-loop systems that regenerate ecosystems and benefit communities.</p>
+          <div class="card-animation-container">
+             <canvas class="solution-animation" id="circular-animation"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agriculture Globe Section -->
+  <section id="agriculture" class="agriculture-section">
+    <div class="container agriculture-container">
+        <div id="globe-container" class="initiative-animation">
+            <div class="globe-overlay"></div>
+        </div>
+        <div class="initiative-text">
+            <span class="section-tag">Focus Initiative</span>
+            <h2 class="initiative-title">Foundational AI for Agriculture in Bangladesh</h2>
+            <h3>Open Data for Soil & Crop Intelligence</h3>
+            <div class="tech-tags">
+                <span><i class="fas fa-vial"></i> Soil Analytics</span>
+                <span><i class="fas fa-satellite"></i> Satellite ML</span>
+                <span><i class="fas fa-database"></i> Open Data Platform</span>
+            </div>
+            <p>
+                Fusing thousands of lab-tested soil data points with Sentinel-2 imagery, we aim build an AI that can predict nutrient levels and optimizes yields across Bangladesh. Powering a sustainable agricultural revolution through accessible data.
+            </p>
+            <a href="#contact" class="cta-button">Partner With Us <i class="fas fa-hands-helping"></i></a>
+        </div>
+    </div>
+  </section>
+
+
+  <!-- index.html -->
+
+<!-- Projects Section -->
+<section id="projects" class="projects-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Impact in Action</span>
+      <h2>Our Groundbreaking Projects</h2>
+      <p>Real-world applications driving measurable environmental change.</p>
+    </div>
+    <div class="projects-grid">
+
+      <article class="project-card">
+        <div class="project-visual" id="urbanheat-visual">
+           <!-- Canvas animation will be added here by JS -->
+
+           <!-- === Add this Demo Overlay structure === -->
+           <div class="demo-overlay-container">
+               <div class="demo-device-frame">
+                  <video class="demo-video" autoplay loop muted playsinline poster="images/canopy-demo-poster.jpg" aria-label="Software demo of canopy placement tool">
+                      <source src="demo.mp4" type="video/mp4">
+                      <!-- <source src="videos/canopy-demo.webm" type="video/webm"> -->
+                      Your browser does not support the video tag.
+                  </video>
+                  <div class="device-frame-details"></div> <!-- Optional: for camera dot etc. -->
+               </div>
+               <p class="demo-caption">Software Simulation</p>
+           </div>
+           <!-- === End of Demo Overlay === -->
+
+        </div>
+        <div class="project-info">
+          <div class="tech-tags">
+              <span><i class="fas fa-thermometer-half"></i> Thermal AI</span>
+              <span><i class="fas fa-tree"></i> Optimized Tree Plantation</span>
+              <!-- <span><i class="fas fa-city"></i> Climate Resilience</span> -->
+          </div>
+        <h3>Nothrim : Urban</h3>
+         <div class="project-meta">
+          <div class="meta-item"><i class="fas fa-calendar-alt"></i> 2024 Pilot</div>
+          <div class="meta-item"><i class="fas fa-tag"></i> Urban Cooling</div>
+        </div>
+        <p class="project-desc">
+         Optimizing urban tree placement using reinforcement learning on thermal data to combat heat islands effectively. View the AI simulation in action.
+        </p>
+        <div class="project-stats">
+          <div class="stat">
+            <div class="stat-value">2.2°C</div>
+            <div class="stat-label">Peak Cooling Effect</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">+15%</div>
+            <div class="stat-label">Canopy Efficiency</div>
+          </div>
+        </div>
+      </div>
+     </article>
+     <!-- === End of Smart Canopy === -->
+
+      <!-- === Bioacoustics Project (NOW SECOND) === -->
+      <article class="project-card">
+        <div class="project-visual" id="bioacoustics-visual">
+          <!-- Canvas is added here by JS -->
+        </div>
+        <div class="project-info">
+           <div class="tech-tags">
+              <span><i class="fas fa-microphone-alt"></i> Bioacoustics</span>
+              <span><i class="fas fa-network-wired"></i> Biodiversity Assessment</span>
+              <span><i class="fas fa-globe-asia"></i> Soundscape Analytics</span>
+           </div>
+          <h3>Nothrim : Sonora</h3>
+          <div class="project-meta">
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i> 2024-Ongoing</div>
+            <div class="meta-item"><i class="fas fa-tag"></i> Biodiversity Monitoring</div>
+          </div>
+          <p class="project-desc">
+            Monitoring ecosystem health via distributed acoustic sensors and advanced AI soundscape analysis across 16 countries.
+          </p>
+          <div class="project-stats">
+            <div class="stat">
+              <div class="stat-value">94%</div>
+              <div class="stat-label">Species ID Accuracy</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">100+</div>
+              <div class="stat-label">Hours Processed</div>
+            </div>
+          </div>
+        </div>
+      </article> <!-- END of Bioacoustics -->
+
+    </div> <!-- END of .projects-grid -->
+  </div> <!-- END of .container -->
+</section> <!-- END of #projects -->
+
+<!-- ... rest of HTML ... -->
+
+  <!-- Team Section -->
+  <section id="team" class="team-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Experts</span>
+        <h2>Meet the Nothrim Innovators</h2>
+        <p>A passionate, multi-disciplinary team dedicated to ecological AI.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-visual">
+            <img src="team/mahir.jpg" alt="Dr. Elena Voss">
+             <div class="member-socials">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h3>Md. Mahir Daiyan</h3>
+            <p class="role">Researcher - Climate Change</p>
+            <p>Next Generation Youth Leadership Awardee, Nepal</p>
+          </div>
+        </div>
+        <div class="team-member">
+           <div class="member-visual">
+            <img src="team/labib.png" alt="Omar Rahman">
+             <div class="member-socials">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h3>Mainul Islam Labib</h3>
+            <p class="role">Algorithms and AI</p>
+            <p>Best Paper (AI) Awardee from University of East London</p>
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="member-visual">
+            <img src="team/sadia.png" alt="Sara Ahmed">
+             <div class="member-socials">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h3>Sadia Afrin</h3>
+            <p class="role">Marketing and Outreach</p>
+            <p>Global Winner of Social Logistics Challenge, DHL</p>
+          </div>
+        </div>
+        <div class="team-member">
+           <div class="member-visual">
+            <img src="team/soisob.png" alt="Liam Chen">
+             <div class="member-socials">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h3>Shahriar Mahmood</h3>
+            <p class="role">Product and Design</p>
+            <p>Climate Artivist and ICCAD Youth Fellow</p>
+          </div>
+        </div>
+      </div>
+       <div class="join-us-cta">
+            <p>Want to contribute to planetary health with AI?</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfbZ-aueRDkerQsv_Q2Vz64ziPXErMZT9p4wj_uH38JOXs97A/viewform?usp=sharing" class="cta-button secondary">Join Our Team <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+  </section>
+
+  <!-- Footer / Contact Section -->
+  <footer id="contact" class="footer-section">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-about">
+          <a href="#hero" class="logo footer-logo">
+            <div class="logo-icon">⟁</div>
+            <span>Nothrim Labs</span>
+          </a>
+          <p>Applying artificial intelligence to understand and regenerate Earth's vital ecosystems, starting from Bangladesh.</p>
+           <div class="footer-social">
+            <!-- <a href="#" aria-label="Research Blog"><i class="fas fa-flask"></i></a> -->
+            <!-- <a href="#" aria-label="Newsletter"><i class="fas fa-envelope-open-text"></i></a> -->
+            <!-- <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a> -->
+            <a href="https://www.linkedin.com/company/nothrim-labs/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/nothrimlabs" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Explore</h4>
+          <nav class="footer-nav">
+            <a href="#solutions">Our Solutions</a>
+            <a href="#agriculture">Agriculture AI</a>
+            <a href="#projects">Projects</a>
+            <a href="#team">Team</a>
+            <!-- <a href="#">Ethics Charter</a>
+            <a href="#">Open Source</a>
+            <a href="#">Careers</a> -->
+          </nav>
+        </div>
+         <div class="footer-contact">
+          <h4>Get in Touch</h4>
+          <p><i class="fas fa-envelope"></i>hello@nothrimlabs.org</p>
+          <p><i class="fas fa-map-marker-alt"></i> HQ: Dhaka, Bangladesh</p>
+          <!-- <p><i class="fas fa-globe"></i> Global Operations</p> -->
+          <p><i class="fas fa-phone"></i>+8801618376869</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Nothrim Labs. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript Files -->
+  <script src="js/terrain.js" defer></script>
+  <script src="js/agriculture-globe.js" defer></script>
+  <script src="js/solution-animations.js" defer></script>
+  <script src="js/projects.js" defer></script>
+  <script src="js/navigation.js" defer></script>
+  <!-- Init Vanilla Tilt after other scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize Vanilla Tilt on designated elements
+        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+            max: 8,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.1,
+            scale: 1.03 // Slight scale effect on hover
+        });
+    });
+  </script>
+</body>
+</html>
